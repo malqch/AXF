@@ -1,0 +1,64 @@
+{% extends 'axf/base/base.html' %}
+{% load staticfiles %}
+
+{% block personResourse %}
+    <link rel="stylesheet" href="{% static 'user/css/register.css' %}">
+    <script type="text/javascript" src="{% static 'user/js/register.js' %}"></script>
+    <script type="text/javascript" src="{% static 'base/js/md5.js' %}"></script>
+{% endblock %}
+
+{#{% block body %}#}
+{#    <div id="user_register">#}
+{##}
+{#        <form onsubmit="return check()" action="{% url 'axf:doregister' %}" method="post" enctype="multipart/form-data">#}
+{#            {% csrf_token %}#}
+{##}
+{#            <span>用户名:</span><input id="register_username" type="text" name="username" placeholder="请输入用户名"><span id="username_check"></span><br>#}
+{#            <span>密码:</span><input id="register_password" type="password" name="password" placeholder="请输入密码"><br>#}
+{#            <span>确认密码:</span><input id="register_password_confirm" type="password" placeholder="请再次输入密码"><span id="password_check"></span><br>#}
+{#            <span>邮箱:</span><input type="text" name="email" placeholder="请输入邮箱"><br>#}
+{#            <span>电话:</span><input type="text" name="phone" placeholder="请输入电话"><br>#}
+{#            <span>头像:</span><input type="file" name="icon" placeholder="请选择头像"><br>#}
+{##}
+{#            <input type="submit" value="注册">#}
+{#        </form>#}
+{##}
+{##}
+{#    </div>#}
+{#{% endblock %}#}
+
+
+{% block body %}
+
+    <form onsubmit="return check()" action="{% url 'axf:doregister' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>用户名:</label>
+            <input type="text"  name="username"class="form-control" id="register_username" placeholder="请输入用户名"><span id="username_check"></span>
+        </div>
+        <div class="form-group">
+            <label>密码:</label>
+            <input type="password" name="password" class="form-control" id="register_password" placeholder="请输入密码">
+        </div>
+        <div class="form-group">
+            <label>确认密码:</label>
+            <input type="password" class="form-control" id="register_password_confirm" placeholder="请再次输入密码"><span id="password_check"></span>
+        </div>
+        <div class="form-group">
+            <label>邮箱:</label>
+            <input type="text" name="email" class="form-control" placeholder="请输入邮箱">
+        </div>
+        <div class="form-group">
+            <label>电话:</label>
+            <input type="text" name="phone" class="form-control" placeholder="请输入电话">
+        </div>
+        <div class="form-group">
+            <label>请选择头像:</label>
+            <input type="file" name="icon">
+        </div>
+
+        <button type="submit" class="btn btn-info">注册</button>
+    </form>
+
+
+{% endblock %}

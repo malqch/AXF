@@ -1,0 +1,9 @@
+{% extends 'axf/base/base.html' %}
+{% load staticfiles %}
+
+
+{% block body %}
+    请扫码付款...........<br>
+{#    {{ orderid }}<br>#}
+    <img src="{% static 'main/img/付款码.png' %}" alt="">
+{% endblock %}

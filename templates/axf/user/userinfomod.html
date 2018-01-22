@@ -1,0 +1,42 @@
+{% extends 'axf/base/base.html' %}
+{% load staticfiles %}
+
+{#{% block body %}#}
+{#    <form action="{% url 'axf:douserinfomod' %}" method="post" enctype="multipart/form-data">#}
+{#            {% csrf_token %}#}
+{#        <span>用户名:{{ username }}</span><br>#}
+{#        <span>密码:{{ password }}</span><br>#}
+{#        <span>选择要修改的头像:</span><input type="file" name="icon" placeholder="请选择需要修改的头像"><br>#}
+{#        <span>电话更改为:</span><input type="text" name="phone" placeholder="输入需要更改的电话"><br>#}
+{#        <span>邮箱更改为:</span><input type="text" name="email" placeholder="输入需要更改的邮箱"><br>#}
+{#        <input type="submit" value="确认修改">#}
+{#    </form>#}
+{#{% endblock %}#}
+
+{% block body %}
+    <form action="{% url 'axf:douserinfomod' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>用户名:</label>
+            <input class="form-control" type="text" placeholder="{{ username }}" disabled>
+        </div>
+        <div class="form-group">
+            <label>密码:</label>
+            <input class="form-control" type="password" placeholder="************************" disabled>
+        </div>
+        <div class="form-group">
+            <label>电话更改为:</label>
+            <input type="text" name="phone" class="form-control" placeholder="输入需要更改的电话">
+        </div>
+        <div class="form-group">
+            <label>邮箱更改为:</label>
+            <input type="text" name="email" class="form-control" placeholder="输入需要更改的邮箱">
+        </div>
+        <div class="form-group">
+            <label>要修改的头像:</label>
+            <input type="file" name="icon">
+        </div>
+
+        <button type="submit" class="btn btn-danger">确认修改</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends 'axf/base/base.html' %}
+{% load staticfiles %}
+
+{% block personResourse %}
+    <script type="text/javascript" src="{% static 'base/js/md5.js' %}"></script>
+    <script type="text/javascript" src="{% static 'user/js/login.js' %}"></script>
+{% endblock %}
+
+{#{% block body %}#}
+{#    <form onsubmit="return check()" action="{% url 'axf:dologin' %}" method="post">#}
+{#        {% csrf_token %}#}
+{#        <span>用户名:</span><input type="text" id="login_username" name="username" placeholder="请输入用户名"><br>#}
+{#        <span>密码:</span><input type="password" id="login_password" name="password" placeholder="请输入密码"><br>#}
+{#        <input type="submit" value="登录">#}
+{#    </form>#}
+{#{% endblock %}#}
+
+
+{% block body %}
+
+    <form onsubmit="return check()" action="{% url 'axf:dologin' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label>用户名:</label>
+            <input type="text" class="form-control" id="login_username" name="username" placeholder="请输入用户名">
+        </div>
+        <div class="form-group">
+            <label>密码:</label>
+            <input type="password" class="form-control" id="login_password" name="password" placeholder="请输入密码">
+        </div>
+
+        <button type="submit" class="btn btn-success">登录</button>
+    </form>
+{% endblock %}
+
